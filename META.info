@@ -1,0 +1,23 @@
+{
+  "name" : "DBIx::NamedQueries",
+  "perl" : "6.*",
+  "test-depends" : [
+    "Test::META"
+  ],
+  "depends" : [
+    "DBIish",
+  ],
+  "provides" : {
+    "DBIx::NamedQueries" : "lib/DBIx/NamedQueries.pm6"
+  },
+  "version" : "0.0.1",
+  "authors" : [
+    "Mario Zieschang"
+  ],
+  "source-url" : "git://github.com/mziescha/perl6-DBIx-NamedQueries.git",
+  "support" : {
+    "bugtracker" : "https://github.com/mziescha/perl6-DBIx-NamedQueries/issues",
+    "source" : "git://github.com/mziescha/perl6-DBIx-NamedQueries.git"
+  },
+  "description" : "DBIx::NamedQueries module written in perl6."
+}
