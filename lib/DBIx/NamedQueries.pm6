@@ -151,7 +151,15 @@ Usinf the nq object
 
 =head2 read
 
+=head2 read
+
 =head2 write
+
+=head2 write
+
+=head2 create
+
+=head2 connect
 
 =head1 AUTHOR
 
