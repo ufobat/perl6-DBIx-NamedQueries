@@ -25,11 +25,7 @@ class DBIx::NamedQueries {
     
     method !param_filler( Hash:D $given_params, Array:D $fields) {
         return [] if !$given_params.elems;
-        my @params;
-        for @($fields) -> $field {
-            push @params, %($given_params){$field<name>};
-        }
-        return @params;
+        return map { %($given_params){$_<name>} }, @($fields) ;
     }
 
     method !handle_rw () {
