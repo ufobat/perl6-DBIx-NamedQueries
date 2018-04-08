@@ -1,21 +1,31 @@
 use v6.c;
 
-use DBIish;
-
 # TODO
 # set timezone
 # set encoding
+
+
+role DBIx::NamedQueries::Handle {
+    has Str $!driver;
+    has Str $!database;
+
+    multi method connect( Str:D $driver, Str:D $database ) {...}
+}
 
 class DBIx::NamedQueries::Handles {
     has Array $!read_only = [];
     has Array $!read_write = [];
 
-    method add_read_only($driver, $database) {
-        $!read_only.push( DBIish.connect( $driver, :database( $database ) ) );
+    method add_read_only(Str:D $type, Str:D $driver, Str:D $database) {
+        my $package = 'DBIx::NamedQueries::Handle::' ~ $type;
+        require ::($package);
+        $!read_only.push( ::($package).new().connect( $driver, $database ));
     }
 
-    method add_read_write($driver, $database) {
-        $!read_write.push( DBIish.connect( $driver, :database( $database ) ) );
+    method add_read_write(Str:D $type, Str:D $driver, Str:D $database) {
+        my $package = 'DBIx::NamedQueries::Handle::' ~ $type;
+        require ::($package);
+        $!read_write.push( ::($package).new().connect( $driver, $database ));
     }
 
     method maybe_read_only()  {

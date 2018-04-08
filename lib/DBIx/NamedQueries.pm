@@ -2,12 +2,25 @@ use v6.c;
 
 use DBIx::NamedQueries::Handles;
 
+role DBIx::NamedQueries::Read {
+    method find(   %params ) { ... }
+    method list(   %params ) { ... }
+    method select( %params ) { ... }
+}
+
+role DBIx::NamedQueries::Write{
+    method alter(  %params ) { ... }
+    method create( %params ) { ... }
+    method insert( %params ) { ... }
+    method update( %params ) { ... }
+}
+
 class DBIx::NamedQueries { 
 
     has Str   $.divider = '/';
     has Str   $.namespace;
     has Hash  $.handle;
-    has DBIx::NamedQueries::Handles $.handles = DBIx::NamedQueries::Handles.new();
+    has DBIx::NamedQueries::Handles $!handles = DBIx::NamedQueries::Handles.new();
 
     method !object_from_string(Str:D $s_package){
         require ::($s_package);
@@ -29,17 +42,17 @@ class DBIx::NamedQueries {
     }
 
     method !handle_rw () {
-        my $handle_rw = self.handles.read_write();
+        my $handle_rw = $!handles.read_write();
         return $handle_rw if $handle_rw;
-        $.handles.add_read_write( $.handle<driver>, $.handle<database> );
-        return self.handles.read_write();
+        $!handles.add_read_write($.handle<type>, $.handle<driver>, $.handle<database> );
+        return $!handles.read_write();
     }
 
     method !handle_ro () {
-        my $handle_ro = self.handles.maybe_read_only();
+        my $handle_ro = $!handles.maybe_read_only();
         return $handle_ro if $handle_ro;
-        $.handles.add_read_only( $.handle<driver>, $.handle<database> );
-        return self.handles.maybe_read_only(); 
+        $!handles.add_read_only($.handle<type>, $.handle<driver>, $.handle<database> );
+        return $!handles.maybe_read_only();
     }
 
     multi method read(Str:D $context){ return self.read($context, {}); }
@@ -53,7 +66,6 @@ class DBIx::NamedQueries {
     multi method write(Str:D $context){ return self.write($context, {}); }
     multi method write(Str:D $context, Hash:D $params){
         my %from_string = self!query_from_string('Write'~ $.divider ~ $context, $params);
-        my $handle = self!handle_rw;
         my $sth = self!handle_rw.prepare(%from_string.<statement>);
 
         if %from_string<fields>:exists {
@@ -90,17 +102,4 @@ class DBIx::NamedQueries {
     method update (Str:D $context, Hash:D $params) {
         return self.write: $context ~ self.divider ~ 'update', $params;
     }
-}
-
-role DBIx::NamedQueries::Read {
-    method find(   %params ) { ... }
-    method list(   %params ) { ... }
-    method select( %params ) { ... }
-}
-
-role DBIx::NamedQueries::Write{
-    method alter(  %params ) { ... }
-    method create( %params ) { ... }
-    method insert( %params ) { ... }
-    method update( %params ) { ... }
 }
