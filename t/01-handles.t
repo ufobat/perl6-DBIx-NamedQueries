@@ -2,11 +2,27 @@ use v6.c;
 
 use Test;
 
-plan 1;
+plan 4;
 
 use-ok 'DBIx::NamedQueries::Handles';
-my $handes = DBIx::NamedQueries::Handles.new();
+use-ok 'DBIx::NamedQueries::Handle::DBIish';
 
-isa-ok($handes, 'DBIx::NamedQueries::Handles', 'Instance isa DBIx::NamedQueries::Handles');
+subtest {
+    plan 1;
 
-diag('TODO: add tests');
+    isa-ok(
+        DBIx::NamedQueries::Handle::DBIish.new,
+        'DBIx::NamedQueries::Handle::DBIish',
+        'Instance isa DBIx::NamedQueries::Handle::DBIish'
+    );
+};
+
+subtest {
+    plan 1;
+
+    isa-ok(
+        DBIx::NamedQueries::Handles.new,
+        'DBIx::NamedQueries::Handles',
+        'Instance isa DBIx::NamedQueries::Handles'
+    );
+};
