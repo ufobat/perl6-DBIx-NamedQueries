@@ -60,9 +60,7 @@ if AUTHOR {
 
         my @expected-module-order = @modules.sort: &by;
         is-deeply @modules, @expected-module-order, $file.Str ~ ' module use order';
-        #dd @modules;
         #say 'vs';
-        #dd @expected-module-order;
         #        like @lines[$expected_line], rx/use \s+ v6(\.c)?/, $file.Str;
     }
     done-testing;

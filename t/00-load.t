@@ -3,6 +3,8 @@ use lib 'lib';
 
 use Test;
 
-plan 1;
+plan 3;
 
 use-ok 'DBIx::NamedQueries';
+use-ok 'DBIx::NamedQueries::Handles';
+use-ok 'DBIx::NamedQueries::Handle::DBIish';
