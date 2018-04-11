@@ -1,9 +1,9 @@
 use DBIx::NamedQueries;
 
 class Queries::Write::Test does DBIx::NamedQueries::Write {
-    
+
     method alter ( %params ) { }
-    
+
     method create ( %params ) {
         return {
             statement => qq~
@@ -17,7 +17,7 @@ class Queries::Write::Test does DBIx::NamedQueries::Write {
             ~
         };
     }
-    
+
     method insert ( %params ) {
         return {
             fields => [ 'name', 'description', 'quantity', 'price', ],
@@ -25,8 +25,6 @@ class Queries::Write::Test does DBIx::NamedQueries::Write {
                   VALUES ( ?, ?, ?, ? )~
         };
     }
-    
+
     method update ( %params ) { }
-    
-    
 }

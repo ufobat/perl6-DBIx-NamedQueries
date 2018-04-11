@@ -1,20 +1,31 @@
 {
+  "authors" : [
+    "Mario Zieschang"
+  ],
+  "build-depends" : [ ],
+  "depends" : [
+    "DBIish"
+  ],
+  "description" : "a predefined sql framework for Perl6",
+  "license" : "NOASSERTION",
   "name" : "DBIx::NamedQueries",
   "perl" : "6.*",
-  "test-depends" : [
-    "Test::META",
-    "Path::Iterator"
-  ],
-  "depends" : [ "DBIish" ],
   "provides" : {
-    "DBIx::NamedQueries" : "lib/DBIx/NamedQueries.pm"
+    "DBIx::NamedQueries" : "lib/DBIx/NamedQueries.pm",
+    "DBIx::NamedQueries::Handle::DBIish" : "lib/DBIx/NamedQueries/Handle/DBIish.pm",
+    "DBIx::NamedQueries::Handles" : "lib/DBIx/NamedQueries/Handles.pm",
+    "DBIx::NamedQueries::Plugins" : "lib/DBIx/NamedQueries/Plugins.pm"
   },
-  "version" : "0.0.1",
-  "authors" : [ "Mario Zieschang" ],
+  "resources" : [ ],
   "source-url" : "git://github.com/mziescha/perl6-DBIx-NamedQueries.git",
   "support" : {
     "bugtracker" : "https://github.com/mziescha/perl6-DBIx-NamedQueries/issues",
     "source" : "git://github.com/mziescha/perl6-DBIx-NamedQueries.git"
   },
-  "description" : "DBIx::NamedQueries module written in perl6."
+  "tags" : [ ],
+  "test-depends" : [
+    "Test::META",
+    "Path::Iterator"
+  ],
+  "version" : "0.0.1"
 }

@@ -13,7 +13,7 @@ class Queries::Read::Test does DBIx::NamedQueries::Read {
             @,
         };
     }
-    
+
     method list( %params ) {
         return {
             fields => [
