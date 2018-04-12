@@ -1,3 +1,5 @@
+use v6.c;
+
 use DBIx::NamedQueries;
 
 class Queries::Write::Test does DBIx::NamedQueries::Write {

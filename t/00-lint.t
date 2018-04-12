@@ -1,8 +1,10 @@
 use v6.c;
+
 use lib 'lib';
 
 use Path::Iterator;
 use Test;
+
 
 constant AUTHOR = ?%*ENV<AUTHOR_TESTING>;
 
@@ -22,11 +24,11 @@ my &by = sub ($a, $b) {
     elsif ! $a.starts-with('lib') && $b.starts-with('lib') {
         More
     }
-    elsif ($a.starts-with('Bailador') && ! $b.starts-with('Bailador'))
+    elsif ($a.starts-with('DBIx::NamedQueries') && ! $b.starts-with('DBIx::NamedQueries'))
     {
         More;
     }
-    elsif (! $a.starts-with('Bailador') && $b.starts-with('Bailador'))
+    elsif (! $a.starts-with('DBIx::NamedQueries') && $b.starts-with('DBIx::NamedQueries'))
     {
         Less;
     }
