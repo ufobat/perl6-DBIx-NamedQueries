@@ -10,6 +10,7 @@ RUN         apt-get update -q \
         &&  apt-get update -q \
         &&  apt-get install --no-install-recommends -qy \
                 git libssl-dev unzip zip \
+                &&  zef install App::Mi6 \
         &&  apt-get clean \
         &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

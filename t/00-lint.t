@@ -13,25 +13,23 @@ constant AUTHOR = ?%*ENV<AUTHOR_TESTING>;
 my &by = sub ($a, $b) {
     if $a eq 'v6.c' {
         Less;
-    } elsif $b eq 'v6.c' {
+    }
+    elsif $b eq 'v6.c' {
         More
     }
-    elsif $a.starts-with('lib') && ! $b.starts-with('lib') {
+    elsif $a.starts-with('lib') && !$b.starts-with('lib') {
         Less
     }
-    elsif ! $a.starts-with('lib') && $b.starts-with('lib') {
+    elsif !$a.starts-with('lib') && $b.starts-with('lib') {
         More
     }
-    elsif ($a.starts-with('Bailador') && ! $b.starts-with('Bailador'))
-    {
+    elsif $a.starts-with('DBIx::NamedQueries') && !$b.starts-with('DBIx::NamedQueries') {
         More;
     }
-    elsif (! $a.starts-with('Bailador') && $b.starts-with('Bailador'))
-    {
+    elsif !$a.starts-with('DBIx::NamedQueries') && $b.starts-with('DBIx::NamedQueries') {
         Less;
     }
-    else
-    {
+    else {
         $a cmp $b;
     }
 };

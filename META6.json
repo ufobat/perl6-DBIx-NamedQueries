@@ -7,9 +7,9 @@
     "DBIish"
   ],
   "description" : "a predefined sql framework for Perl6",
-  "license" : "NOASSERTION",
+  "license" : "Artistic-2.0",
   "name" : "DBIx::NamedQueries",
-  "perl" : "6.*",
+  "perl" : "6.c",
   "provides" : {
     "DBIx::NamedQueries" : "lib/DBIx/NamedQueries.pm",
     "DBIx::NamedQueries::Handle::DBIish" : "lib/DBIx/NamedQueries/Handle/DBIish.pm",
