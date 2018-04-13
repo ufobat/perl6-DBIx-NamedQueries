@@ -8,10 +8,10 @@ env:
 install:
     - docker build -t mziescha/perl6-namedqueries .
     - docker run -d -e 'AUTHOR_TESTING=1' -v "$(pwd)":/srv --name p6-namedqueries-test mziescha/perl6-namedqueries /bin/sleep infinity
-    - docker exec -it p6-namedqueries-test zef --verbose --deps-only install .
+    - docker exec -it p6-namedqueries-test zef --deps-only install .
     
 script:
-    - docker exec -it p6-namedqueries-test prove6 -l -v t
+    - docker exec -it p6-namedqueries-test prove6 -l t
     
 after_success:
     - docker stop p6-namedqueries-test

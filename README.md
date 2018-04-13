@@ -53,7 +53,7 @@ Create a namedquery instance
         },
     );
 
-And now the namedquery instnce is writing the table users with the predefined SQL-Statement
+And now the namedquery instance is writing the table users with the predefined SQL-Statement
 
     $namedqueries.write( 'test/create' );
 
@@ -67,6 +67,11 @@ DESCRIPTION
 
 FAQ
 ===
+
+Motivation
+----------
+
+This is my first perl6 module on cpan. I needed a project to learn the programming language. And I hope it helps someone to handle a huge amount SQL-Statements.
 
 TODO
 ====

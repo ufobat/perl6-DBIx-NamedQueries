@@ -10,7 +10,6 @@ class DBIx::NamedQueries::Handle::DBIish does DBIx::NamedQueries::Handle {
     }
 }
 
-
 =begin pod
 
 =head1 NAME
@@ -63,7 +62,7 @@ Create a namedquery instance
         },
     );
 
-And now the namedquery instnce is writing the table users with the predefined
+And now the namedquery instance is writing the table users with the predefined
 SQL-Statement
 
     $namedqueries.write( 'test/create' );
@@ -75,6 +74,11 @@ SQL-Statement
 =head1 DESCRIPTION
 
 =head1 FAQ
+
+=head2 Motivation
+
+This is my first perl6 module on cpan. I needed a project to learn the programming language.
+And I hope it helps someone to handle a huge amount SQL-Statements.
 
 =head1 TODO
 
