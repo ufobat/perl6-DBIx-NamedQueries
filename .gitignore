@@ -2,4 +2,4 @@
 /data/
 .precomp
 .idea/
-lib/Bailador/tmp*
+lib/DBIx/NamedQueries/tmp*

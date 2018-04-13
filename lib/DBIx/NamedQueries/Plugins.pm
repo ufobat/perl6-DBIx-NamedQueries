@@ -1,15 +1,13 @@
 use v6.c;
 
-#use DBIx::NamedQueries::::Configuration;
-
-role DBIx::NamedQueries::::Plugin {
+role DBIx::NamedQueries::Plugin {
     has %.config;
 }
 
-class DBIx::NamedQueries::::Plugins {
+class DBIx::NamedQueries::Plugins {
     has %!plugins = {};
 
-    method add(Str:D $name, DBIx::NamedQueries::::Plugin:D $plugin) {
+    method add(Str:D $name, DBIx::NamedQueries::Plugin:D $plugin) {
         %!plugins.{$name} = $plugin;
     }
 
@@ -17,10 +15,10 @@ class DBIx::NamedQueries::::Plugins {
         return %!plugins.{$name};
     }
 
-    #method detect(DBIx::NamedQueries::::Configuration $config) {
+    #method detect(DBIx::NamedQueries::Configuration $config) {
     #    for $config.plugins.keys -> $name {
     #        my $plugin_conf= $config.plugins{$name};
-    #        my $package = 'DBIx::NamedQueries::::Plugin::' ~ $name;
+    #        my $package = 'DBIx::NamedQueries::Plugin::' ~ $name;
     #        try {
     #            require ::($package);
     #             $.add($name, ::($package).new(config => $plugin_conf));
