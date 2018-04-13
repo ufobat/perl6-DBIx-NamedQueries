@@ -12,7 +12,7 @@ role DBIx::NamedQueries::Handle {
     multi method connect( Str:D $driver, Str:D $database ) {...}
 }
 
-class DBIx::NamedQueries::Handles {
+class DBIx::NamedQueries::Handles:ver<0.0.1> {
     has Array $!read_only = [];
     has Array $!read_write = [];
 

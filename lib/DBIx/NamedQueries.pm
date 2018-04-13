@@ -15,7 +15,7 @@ role DBIx::NamedQueries::Write{
     method update( %params ) { ... }
 }
 
-class DBIx::NamedQueries { 
+class DBIx::NamedQueries:ver<0.0.1>:auth<cpan:MZIESCHA> { 
 
     has Str   $.divider = '/';
     has Str   $.namespace;

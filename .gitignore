@@ -3,3 +3,4 @@
 .precomp
 .idea/
 lib/DBIx/NamedQueries/tmp*
+DBIx-NamedQueries-*

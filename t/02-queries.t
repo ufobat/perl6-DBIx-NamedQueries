@@ -21,7 +21,7 @@ subtest 'create db test', {
 
     isa-ok( $namedqueries, 'DBIx::NamedQueries', 'Instance isa DBIx::NamedQueries' );
     
-    ok( $namedqueries.write( 'test/create' ), 'Instance isa DBIx::NamedQueries' );
+    ok( $namedqueries.write( 'test/create' ), 'Create table test' );
 };
 
 subtest 'insert tests', {
